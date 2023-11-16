@@ -1,0 +1,13 @@
+LOAD DATABASE
+     FROM mysql://user:password@mysql/afterlib
+     INTO postgresql://user:password@postgres/afterlib
+
+ WITH create no indexes, 
+      prefetch rows = 10000,
+      workers = 8, concurrency = 1,
+      multiple readers per thread, rows per range = 50000
+  
+ ALTER SCHEMA 'afterlib' RENAME TO 'public'
+
+ CAST type datetime to timestamptz drop not null using zero-dates-to-null,
+      type date drop not null drop default using zero-dates-to-null;
