@@ -2,15 +2,16 @@ LOAD DATABASE
      FROM mysql://afterlib_dev3_admin:ZiX81NPNxFbe@45.77.200.99:3306/afterlib_dev4
      INTO postgresql://vultradmin:AVNS_FDu-vCBPkgWCrN1rezb@vultr-prod-c0ddf66e-9e54-45ea-be49-b66329873ff0-vultr-prod-42a1.vultrdb.com:16751/defaultdb
 
- WITH create no indexes, 
-      prefetch rows = 10000,
-      workers = 8, concurrency = 1,
-      multiple readers per thread, rows per range = 50000
-  
- ALTER SCHEMA 'afterlib' RENAME TO 'public'
+WITH create no indexes,
+     prefetch rows = 10000,
+     workers = 8, concurrency = 1,
+     multiple readers per thread, rows per range = 50000
 
- CAST type datetime to timestamptz drop not null using zero-dates-to-null,
-      type int to integer drop typemod,
-      type tinyint to integer drop typemod,
-      type smallint to integer drop typemod,
-      type date drop not null drop default using zero-dates-to-null;
+ALTER SCHEMA 'afterlib_dev4' RENAME TO 'public'
+
+CAST type datetime to timestamptz drop not null using zero-dates-to-null,
+     type int to integer drop typemod,
+     type tinyint to integer drop typemod,
+     type smallint to integer drop typemod,
+     type bigint to bigint drop typemod,
+     type date drop not null drop default using zero-dates-to-null;
