@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   mysql:
-    image: mysql:5.7
+    image: mysql:5.7.44
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: afterlib
@@ -17,7 +17,7 @@ services:
       - backend
 
   postgres:
-    image: postgres:latest
+    image: postgres:15.5
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
