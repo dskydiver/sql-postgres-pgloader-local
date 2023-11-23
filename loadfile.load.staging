@@ -1,6 +1,6 @@
 LOAD DATABASE
      FROM mysql://afterlib_dev3_admin:ZiX81NPNxFbe@45.77.200.99:3306/afterlib_dev4
-     INTO postgresql://vultradmin:AVNS_FDu-vCBPkgWCrN1rezb@vultr-prod-c0ddf66e-9e54-45ea-be49-b66329873ff0-vultr-prod-42a1.vultrdb.com:16751/defaultdb?sslmode=require
+     INTO postgresql://vultradmin:AVNS_FDu-vCBPkgWCrN1rezb@vultr-prod-c0ddf66e-9e54-45ea-be49-b66329873ff0-vultr-prod-42a1.vultrdb.com:16751/defaultdb?sslmode=allow
 
 WITH create no indexes,
      prefetch rows = 10000,
